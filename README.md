@@ -7,7 +7,16 @@ A Spotify Wrapped-style summary of your Cursor usage for the year.
 - `usage-events-2025-12-04.csv` - Your Cursor usage data export
 - `cursor_wrapped.py` - Python script that analyzes the CSV and generates statistics
 - `cursor_wrapped_summary.json` - Generated JSON summary with all statistics
-- `cursor_wrapped.html` - Interactive web visualization (Spotify Wrapped style)
+- `cursor_wrapped_terminal.py` - Terminal script that displays a formatted ASCII summary
+
+## Getting Your Data
+
+To export your Cursor usage data:
+
+1. Go to [https://cursor.com/dashboard?tab=usage](https://cursor.com/dashboard?tab=usage)
+2. Set your date range (e.g., the full year)
+3. Click the export button to download your CSV file
+4. Save the CSV file in this directory (or update the filename in the script)
 
 ## Usage
 
@@ -25,30 +34,22 @@ This will:
 3. Print a text summary to the console
 4. Generate `cursor_wrapped_summary.json` with all the data
 
-### View Interactive Visualization
+### View Terminal Summary
 
-Open `cursor_wrapped.html` in your web browser:
+Display a beautifully formatted ASCII summary in your terminal:
 
 ```bash
-open cursor_wrapped.html
+python3 cursor_wrapped_terminal.py
 ```
 
-The HTML file will automatically load data from `cursor_wrapped_summary.json` and display an interactive slideshow with:
+The terminal summary displays:
 
 - Total activity and tokens processed
-- Daily averages
-- Total cost
-- Top models used
-- Peak coding hours
-- Most productive days
+- Daily averages and statistics
+- Total cost breakdown
+- Top 5 models used
+- Peak coding hours, days, and weekdays
 - Cache efficiency metrics
-- Token statistics
-
-### Navigation
-
-- **Auto-advance**: Slides automatically advance every 5 seconds
-- **Keyboard**: Use arrow keys (← → ↑ ↓) to navigate
-- **Dots**: Click the navigation dots at the bottom to jump to any slide
 
 ## Statistics Included
 
@@ -64,8 +65,9 @@ The HTML file will automatically load data from `cursor_wrapped_summary.json` an
 
 To regenerate the summary with updated data:
 
-1. Export a new CSV from Cursor
-2. Replace `usage-events-2025-12-04.csv` (or update the filename in the script)
-3. Run `python3 cursor_wrapped.py` again
-4. Refresh the HTML page
+1. Go to [https://cursor.com/dashboard?tab=usage](https://cursor.com/dashboard?tab=usage)
+2. Set your date range and export a new CSV
+3. Replace `usage-events-2025-12-04.csv` (or update the filename in the script)
+4. Run `python3 cursor_wrapped.py` again to regenerate the JSON
+5. Run `python3 cursor_wrapped_terminal.py` to view the updated summary
 
